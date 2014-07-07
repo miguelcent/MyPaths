@@ -1,8 +1,8 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
-	xmlns:app='urn:import:com.myPaths.client'
-	xmlns:myPaths='urn:import:com.myPaths.client'
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:app="urn:import:com.myPaths.client""
+	xmlns:myPaths="urn:import:com.myPaths.client">
 	
 	<ui:style src="Resources/GlobalStyles.css" />
 

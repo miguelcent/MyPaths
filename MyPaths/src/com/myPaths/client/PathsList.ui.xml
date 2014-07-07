@@ -8,7 +8,7 @@
 		<div class='{style.contentColumn}'>
 	      <div class="{style.titleBar}">Mis Rutas</div>
 	      <g:HorizontalPanel ui:field='searchForm' />
-	      <g:HorizontalPanel ui:field='sortForm' />
+	      <g:FlowPanel ui:field='sortForm' />
 	      <g:FlexTable ui:field='pathsTable' />
     	</div>    
 	</g:HTMLPanel>
