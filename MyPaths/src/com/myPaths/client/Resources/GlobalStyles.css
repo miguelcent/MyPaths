@@ -1,0 +1,45 @@
+.outer{
+	background-color:red;
+}
+
+.boxPadding {
+  margin: 11px 0 11px 11px;
+  xpadding: 11px;
+}
+
+.pathPanel {
+  width: 100%;
+  background-color: white;
+  border: 2px solid #5693d6;
+  height: 100%;
+}
+
+.titleBar {
+  background-color: #5693d6;
+  color: white;
+  padding: 8px 4px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.footerPanel {
+  margin-left: 11px;
+  padding: 10px;
+  border-top: 2px solid #5693d6;
+  text-align: right;
+  }
+  
+  .contentColumn {
+  margin: 10px 0 0 10px;
+  background-color: white;
+  border: 2px solid #5693d6;
+}
+
+.titleBar {
+  background-color: #5693d6;
+  color: white;
+  padding: 8px 4px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+

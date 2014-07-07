@@ -1,0 +1,41 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:app='urn:import:com.myPaths.client'
+	xmlns:myPaths='urn:import:com.myPaths.client'
+	
+	<ui:style src="Resources/GlobalStyles.css" />
+
+	<g:DockLayoutPanel unit="EM" stylename='{style.outer}'>
+	    
+	    <g:north size='7'>
+	        <app:HeaderPanel ui:field='headerPanel' />
+	    </g:north>
+	    
+		<g:west size='42'>
+			<myPaths:PathsList ui:field='pathsList' />
+		</g:west>
+		<g:center>
+		    <g:HTMLPanel styleName='{style.boxPadding}'>
+		        
+		       <div class="{style.titleBar}">Ruta seleccionada:</div>
+		       <g:PathPanel ui:field='pathPanel'
+		           styleName='{style.pathPanel}' />  
+		    </g:HTMLPanel>
+		</g:center>
+		<g:south size="3">
+		    <g:HTMLPanel styleName='{style.footerPanel}'>
+		        <div>
+		            <a href="#">Contacto</a>
+		            |
+		            <a href="#">Privacidad</a>
+		            |
+		            <a href="#">Sobre MyPaths</a>
+		        </div>
+		    </g:HTMLPanel>
+		</g:south>
+	    
+	</g:DockLayoutPanel>
+	    
+	
+</ui:UiBinder> 
