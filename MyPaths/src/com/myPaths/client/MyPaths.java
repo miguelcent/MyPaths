@@ -14,8 +14,8 @@ public class MyPaths implements EntryPoint {
 	HeaderPanel headerPanel;
 	@UiField
 	PathsList pathsList;
-	@UiField
-	PathPanel pathPanel;
+//	@UiField
+//	PathPanel pathPanel;
 	
 	interface MyPathsUiBinder extends UiBinder<DockLayoutPanel, MyPaths> {
 	}

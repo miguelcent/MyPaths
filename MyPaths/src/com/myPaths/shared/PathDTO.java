@@ -1,23 +1,24 @@
 package com.myPaths.shared;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @SuppressWarnings("serial")
 public class PathDTO implements Serializable {
 	
-	private String id;
+	private Long id;
 	private String name;
 	private String category;
-	private String rating;
+	private Double rating;
 	private String owner;
 	private String fileUrl;
 	private String description;
-	private String createdDate;
+	private Date createdDate;
 	private String pathPlace;
 	
-	public PathDTO(String id, String name, String category, String rating,
+	public PathDTO(Long id, String name, String category, Double rating,
 			String owner, String fileUrl, String description,
-			String createdDate, String pathPlace) {
+			Date createdDate, String pathPlace) {
 		
 		this.id = id;
 		this.name = name;
@@ -31,7 +32,7 @@ public class PathDTO implements Serializable {
 	}
 	
 	public PathDTO(){
-		new PathDTO("0", "", "", "", "", "", "", "", "");
+		new PathDTO(new Long(0), "", "", 0.0, "", "", "", new Date(), "");
 	}
 
 	public String getDescription() {
@@ -42,7 +43,7 @@ public class PathDTO implements Serializable {
 		this.description = description;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -54,7 +55,7 @@ public class PathDTO implements Serializable {
 		return category;
 	}
 
-	public String getRating() {
+	public Double getRating() {
 		return rating;
 	}
 
@@ -66,7 +67,7 @@ public class PathDTO implements Serializable {
 		return fileUrl;
 	}
 
-	public String getCreatedDate() {
+	public Date getCreatedDate() {
 		return createdDate;
 	}
 
@@ -74,7 +75,7 @@ public class PathDTO implements Serializable {
 		return pathPlace;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -86,7 +87,7 @@ public class PathDTO implements Serializable {
 		this.category = category;
 	}
 
-	public void setRating(String rating) {
+	public void setRating(Double rating) {
 		this.rating = rating;
 	}
 
@@ -98,7 +99,7 @@ public class PathDTO implements Serializable {
 		this.fileUrl = fileUrl;
 	}
 
-	public void setCreatedDate(String createdDate) {
+	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
 

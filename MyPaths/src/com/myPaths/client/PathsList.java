@@ -28,7 +28,9 @@ import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.myPaths.client.Resources.GlobalResources;
 import com.myPaths.shared.PathSummaryDTO;
+import com.myPaths.shared.UserAccountDTO;
 import com.sun.java.swing.plaf.windows.resources.windows;
 //Comentario de prueba
 
@@ -82,7 +84,7 @@ public class PathsList extends Composite {
 		displaySearch();
 	}
 	
-	public void getSortForm{
+	public void getSortForm(){
 		displaySort();
 	}
 
@@ -94,8 +96,6 @@ public class PathsList extends Composite {
 			}	
 	
 			public void onSuccess(ArrayList<PathSummaryDTO> result) {
-//			displaySeach(result);
-//		    displaySort(result);
 		    displayPaths(result);
 			}
 		});
@@ -132,7 +132,7 @@ public class PathsList extends Composite {
 			}
 		});
 	    
-	    final Image searchPathImage = new Image(GlobalResources.RESOURCE.searchPathButton());
+	    final Image searchPathImage = new Image(GlobalResources.RESOURCE.search());
 		searchPathImage.setStyleName("pointer");
 		searchPathImage.addClickHandler(new ClickHandler() {			
 			@Override
@@ -159,6 +159,7 @@ public class PathsList extends Composite {
 
 	    // Add them to the root panel.
 	    FlowPanel panel = new FlowPanel();
+	    panel.add(sortBy);
 	    panel.add(rb0);
 	    panel.add(rb1);
 	    panel.add(rb2);
@@ -176,9 +177,9 @@ public class PathsList extends Composite {
 			HorizontalPanel hp = new HorizontalPanel();
 			HorizontalPanel hp2 = new HorizontalPanel();
 			CheckBox checkBoxName = new CheckBox(truncateLongName(path.getDisplayName()));
-			final Image propertyImg = new Image(GlobalResources.RESOURCE.propertyButton());
+			final Image propertyImg = new Image(GlobalResources.RESOURCE.editar());
 			propertyImg.setStyleName("pointer");
-			propertyImg.addClickHandler(new ShowFriendPopupPanel(friend, propertyImg));
+			//propertyImg.addClickHandler(new ShowFriendPopupPanel(friend, propertyImg));
 			hp.add(checkBoxName);
 			hp2.add(propertyImg);
 			def.add(hp);
@@ -222,88 +223,88 @@ public class PathsList extends Composite {
 	    return shorten;
 	}
 
-	@UiHandler("addNew")
-	void onClick(ClickEvent e) {
-		ConnectrApp.get().showAddFriend();
-	}
+//	@UiHandler("addNew")
+//	void onClick(ClickEvent e) {
+//		ConnectrApp.get().showAddFriend();
+//	}
 
-	/**
-	 * A simple popup that displays friend's info w/ edit / delete buttons.
-	 */
-	static class FriendPopup extends PopupPanel {
-		@UiTemplate("FriendPopup.ui.xml")
-		interface Binder extends UiBinder<Widget, FriendPopup> {
-		}
+//	/**
+//	 * A simple popup that displays friend's info w/ edit / delete buttons.
+//	 */
+//	static class FriendPopup extends PopupPanel {
+//		@UiTemplate("FriendPopup.ui.xml")
+//		interface Binder extends UiBinder<Widget, FriendPopup> {
+//		}
+//
+//	    private static final Binder binder = GWT.create(Binder.class);
+//
+//	    @UiField
+//	    Element nameDiv;
+//	    FriendSummaryDTO friend;
+//
+//	    public FriendPopup(FriendSummaryDTO friend) {
+//	    	// The popup's constructor's argument is a boolean specifying that
+//	    	// it auto-close itself when the user clicks outside of it.
+//	    	super(true);
+//	    	this.friend = friend;
+//	    	add(binder.createAndBindUi(this));
+//	    	nameDiv.setInnerText(friend.getDisplayName());
+//
+//	    }
+//
+//	    private final static FriendsServiceAsync friendsService = GWT.create(FriendsService.class);
+//
+//	    private static void deleteFriend(FriendSummaryDTO friend) {
+//	    	friendsService.deleteFriend(friend.getId(), new AsyncCallback<Boolean>() {
+//	    		public void onFailure(Throwable caught) {
+//	    			Window.alert("An error occurred");
+//	            }
+//
+//	            public void onSuccess(Boolean result) {
+//	            	ConnectrApp.get().showFriendList();
+//	            }
+//	    	});
+//
+//	    }
+//
+//	    @UiHandler("delete")
+//	    void onDeleteClick(ClickEvent e) {
+//	      if (Window.confirm("Are you sure?")) {
+//	        deleteFriend(friend);
+//	        this.hide();
+//	      }
+//	    }
+//
+//	    @UiHandler("edit")
+//	    void onEditClick(ClickEvent e) {
+//	      // handle click
+//	      ConnectrApp.get().showEditFriend(friend.getId());
+//	      this.hide();
+//	    }
+//	}
 
-	    private static final Binder binder = GWT.create(Binder.class);
-
-	    @UiField
-	    Element nameDiv;
-	    FriendSummaryDTO friend;
-
-	    public FriendPopup(FriendSummaryDTO friend) {
-	    	// The popup's constructor's argument is a boolean specifying that
-	    	// it auto-close itself when the user clicks outside of it.
-	    	super(true);
-	    	this.friend = friend;
-	    	add(binder.createAndBindUi(this));
-	    	nameDiv.setInnerText(friend.getDisplayName());
-
-	    }
-
-	    private final static FriendsServiceAsync friendsService = GWT.create(FriendsService.class);
-
-	    private static void deleteFriend(FriendSummaryDTO friend) {
-	    	friendsService.deleteFriend(friend.getId(), new AsyncCallback<Boolean>() {
-	    		public void onFailure(Throwable caught) {
-	    			Window.alert("An error occurred");
-	            }
-
-	            public void onSuccess(Boolean result) {
-	            	ConnectrApp.get().showFriendList();
-	            }
-	    	});
-
-	    }
-
-	    @UiHandler("delete")
-	    void onDeleteClick(ClickEvent e) {
-	      if (Window.confirm("Are you sure?")) {
-	        deleteFriend(friend);
-	        this.hide();
-	      }
-	    }
-
-	    @UiHandler("edit")
-	    void onEditClick(ClickEvent e) {
-	      // handle click
-	      ConnectrApp.get().showEditFriend(friend.getId());
-	      this.hide();
-	    }
-	}
-
-	/**
-	 * 
-	 * ShowPopupPanel
-	 * 
-	 */
-	final class ShowFriendPopupPanel implements ClickHandler {
-		private final FriendSummaryDTO friend;
-		private final Image propertyImg;
-
-		private ShowFriendPopupPanel(FriendSummaryDTO friend, Image propertyImg) {
-			this.friend = friend;
-			this.propertyImg = propertyImg;
-		}
-
-	    @Override
-	    public void onClick(ClickEvent event) {
-	    	FriendPopup popup = new FriendPopup(friend);
-	    	int left = propertyImg.getAbsoluteLeft() + 14;
-	    	int top = propertyImg.getAbsoluteTop() + 14;
-	    	popup.setPopupPosition(left, top);
-	    	popup.show();
-	    }
-	}
+//	/**
+//	 * 
+//	 * ShowPopupPanel
+//	 * 
+//	 */
+//	final class ShowFriendPopupPanel implements ClickHandler {
+//		private final FriendSummaryDTO friend;
+//		private final Image propertyImg;
+//
+//		private ShowFriendPopupPanel(FriendSummaryDTO friend, Image propertyImg) {
+//			this.friend = friend;
+//			this.propertyImg = propertyImg;
+//		}
+//
+//	    @Override
+//	    public void onClick(ClickEvent event) {
+//	    	FriendPopup popup = new FriendPopup(friend);
+//	    	int left = propertyImg.getAbsoluteLeft() + 14;
+//	    	int top = propertyImg.getAbsoluteTop() + 14;
+//	    	popup.setPopupPosition(left, top);
+//	    	popup.show();
+//	    }
+//	}
 
 }

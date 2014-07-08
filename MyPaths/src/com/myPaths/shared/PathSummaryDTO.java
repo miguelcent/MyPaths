@@ -4,17 +4,17 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class PathSummaryDTO implements Serializable {
-	private String id;
+	private Long id;
 	private String displayName;
-	private String rating;
+	private Double rating;
 	private String category;
 	private String owner;
 	
 	public PathSummaryDTO(){
-		new PathSummaryDTO("0", "", "", "", "");
+		new PathSummaryDTO(new Long(0), "", 0.0, "", "");
 	}
 	
-	public PathSummaryDTO(String id, String displayName, String rating, String category, String owner){
+	public PathSummaryDTO(Long id, String displayName, Double rating, String category, String owner){
 		this.id = id;
 		this.displayName = displayName;
 		this.rating = rating;
@@ -22,7 +22,7 @@ public class PathSummaryDTO implements Serializable {
 		this.owner = owner;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -30,7 +30,7 @@ public class PathSummaryDTO implements Serializable {
 		return displayName;
 	}
 
-	public String getRating() {
+	public Double getRating() {
 		return rating;
 	}
 
@@ -38,7 +38,7 @@ public class PathSummaryDTO implements Serializable {
 		return category;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -46,7 +46,7 @@ public class PathSummaryDTO implements Serializable {
 		this.displayName = displayName;
 	}
 
-	public void setRating(String rating) {
+	public void setRating(Double rating) {
 		this.rating = rating;
 	}
 

@@ -5,6 +5,7 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class UserDTO implements Serializable {
 	
+	private Long id;
 	private String username;
 	private String password;
 	private String email;
@@ -18,9 +19,10 @@ public class UserDTO implements Serializable {
 		
 	}
 
-	public UserDTO(String username, String password, String email, String name,
+	public UserDTO(Long id, String username, String password, String email, String name,
 			String surname, String country, String province, String profileImg) {
 		this();
+		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.email = email;
@@ -93,6 +95,14 @@ public class UserDTO implements Serializable {
 
 	public void setProfileImg(String profileImg) {
 		this.profileImg = profileImg;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	
