@@ -30,7 +30,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.myPaths.shared.PathSummaryDTO;
 import com.sun.java.swing.plaf.windows.resources.windows;
-
+//Comentario de prueba
 
 
 public class PathsList extends Composite {
